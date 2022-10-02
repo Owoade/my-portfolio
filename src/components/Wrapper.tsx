@@ -7,7 +7,7 @@ export interface IWrapper {
 
 const Wrapper = ({ children } : IWrapper) => {
   return(
-    <Box width={{sm:"70%", base:"90%"}} margin="0 auto">
+    <Box width={{lg:"1090px", base:"90%"}} margin="0 auto">
         {children}
     </Box>
   ) ;

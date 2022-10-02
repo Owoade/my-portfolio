@@ -11,6 +11,8 @@ const NODE_JS = "https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/n
 const CSS = "https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/htmlcss_1_zjcphr.png";
 const HTML = "https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/htmlcss_2_enlzgw.png";
 const FIREBASE = "https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/firebase_1_zz5ha6.png";
+const SQL_LITE = "https://res.cloudinary.com/dles2mycv/image/upload/v1664751098/SQLite_Vector_logo-768x529_1_uy4yhv.png"
+
 
 const projects:IProject[] = [
  {
@@ -25,7 +27,7 @@ const projects:IProject[] = [
     technologies: [ REACT, CHAKRA_UI]
  },
  {
-    name: "Quickteller",
+    name: "Quickteller dashboard",
     image: "https://res.cloudinary.com/dles2mycv/image/upload/v1664726637/quickteller-group_qovmf0.png",
     desc: "A revamp of the existing one",
     links:{
@@ -77,6 +79,37 @@ const projects:IProject[] = [
     },
     category: "Fullstack",
     technologies: [ TYPESCRIPT,REACT,NODE_JS, FIREBASE, MONGO_DB ]
+}, 
+{
+    name: "Localbased",
+    desc: "A cli tool for REST API",
+    image: "https://res.cloudinary.com/dles2mycv/image/upload/v1664726628/localbased_group_tmeosd.png",
+    links:{
+        live: "https://www.npmjs.com/package/localbased",
+        github: "https://github.com/Owoade/localbased"
+    },
+    category: "Backend",
+    technologies: [ TYPESCRIPT, NODE_JS ]
+},
+{
+    name: "Rails proxy",
+    desc: "a reverse proxy with Rails",
+    image: "https://res.cloudinary.com/dles2mycv/image/upload/v1664726635/rails_proxy_group_pqv1ty.png",
+    links:{
+        github: "https://github.com/Owoade/rails-proxy"
+    },
+    category: "Backend",
+    technologies: [ RAILS, SQL_LITE ]
+},
+{
+    name: "Template generator",
+    desc: "A generator for MVC boilerplates",
+    image: "https://res.cloudinary.com/dles2mycv/image/upload/v1664726641/template_generator_group_gh47h3.png",
+    links: {
+        github: "https://github.com/Owoade/CLI-BOX/tree/main/template-generator"
+    }, 
+    category: "Backend",
+    technologies: [ JAVASCRIPT, NODE_JS ]
 }
 ]
 

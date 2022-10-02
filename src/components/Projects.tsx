@@ -1,50 +1,118 @@
-import { Box, HStack, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  HStack,
+  Image,
+  Text,
+  chakra,
+} from "@chakra-ui/react";
 import { RiGithubFill, RiLinksLine } from "react-icons/ri";
-
-interface IProject {
-    name: string;
-    desc: string;
-    links:{
-        github: string;
-        live: string;
-    };
-    technologies: string[]
-}
+import projects from "../data/projects";
+import { TPprojects } from "./ProjectTab";
+import { useContext } from "react";
+import { PortfolioTabContext } from "../contexts/PortfolioTabContext";
+import { useNavigate } from "react-router-dom";
 
 function Projects() {
+  const { active } = useContext(PortfolioTabContext);
+  const filteredProjects = projects.filter(
+    (project) => project.category === active
+  );
+  const navigate = useNavigate();
   return (
-    <Box width={"300px"} border="1px solid whitesmoke" borderRadius={"8px"}>
-      <Image
-        width="100%"
-        src="https://res.cloudinary.com/dles2mycv/image/upload/v1664726643/Group_1_f6uybj.png"
-      />
-      <Box
-        className="project__desc"
-        textAlign={"center"}
+    <Box>
+      <Grid
+        width={{ lg: "100%", base: "fit-content" }}
+        rowGap={{ lg: "0", base: "6" }}
+        gridTemplateColumns={{ lg: "repeat(3, 1fr)", base: "repeat(1, 1fr)" }}
+        margin={{ lg: "3em 0", base: "3em auto" }}
       >
-        <Text fontWeight={"extrabold"} mt={3}>
-          Localbase
-        </Text>
-        <Text color="grey" my={3}>
-          A club management application
-        </Text>
-        <HStack fontSize={"20px"} width="50px" margin="0 auto">
-          <RiLinksLine display={"block"} />
-          <RiGithubFill display={"block"} />
-        </HStack>
-        <HStack width={"fit-content"} margin="1em auto">
-            <Image width="30px" src="https://res.cloudinary.com/dles2mycv/image/upload/v1664730392/chakra_ui_1_nkslja.png" />
-            <Image width="30px" src="https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/ts_js_1_ielib3.png" />
-            <Image width="30px" src="https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/react-1024x1024_1_n1jskz.png" />
-            <Image width="30px" src="https://res.cloudinary.com/dles2mycv/image/upload/v1664730391/firebase_1_zz5ha6.png" />
-        </HStack>
-      </Box>
+        {filteredProjects.map((project) => (
+          <Project project={project} />
+        ))}
+      </Grid>
+      <HStack
+        margin={"1em auto"}
+        display={{ xs: "flex", base: "block" }}
+        textAlign="center"
+        width={{ xs: "fit-content", base: "100%" }}
+        transform={{ sm: "translateY(2em)", base: "translateY(.5em)" }}
+      >
+        <Text margin="1em 0">You like what you see 😀?</Text>
+        <Button
+          className="main-cta"
+          as={"a"}
+          target={"_blank"}
+          href="mailto:owoadeanuoluwapo2@gmail.com"
+          variant={"primary"}
+        >
+          {" "}
+          Tell me about it 📧
+        </Button>
+      </HStack>
     </Box>
   );
 }
 
-function Project(){
-
+function Project({ project }: { project: IProject }) {
+  return (
+    <Box
+      width={{lg:"300px", base: "290px"}}
+      border="1px solid whitesmoke"
+      borderRadius={"8px"}
+      boxShadow="0px 4px 25px rgba(197, 197, 197, 0.15);"
+    >
+      <Image width="100%" src={project.image} />
+      <Box className="project__desc" textAlign={"center"}>
+        <Text fontWeight={"extrabold"} mt={3}>
+          {project.name}
+        </Text>
+        <Text color="grey" my={3}>
+          {project.desc}
+        </Text>
+        <HStack fontSize={"20px"} width="fit-content" margin="1em auto">
+          {project.links?.live && (
+            <a
+              href={project.links?.live}
+              target={"blank"}
+              style={{ display: "flex", textDecoration: "underline" }}
+            >
+              <chakra.span
+                display={"inline-block"}
+                fontSize="13px"
+                color={"grey"}
+              >
+                Live
+              </chakra.span>
+              <RiLinksLine display={"block"} />
+            </a>
+          )}
+          {project.links?.github && (
+            <a
+              href={project.links?.github}
+              target={"blank"}
+              style={{ display: "flex", textDecoration: "underline" }}
+            >
+              <chakra.span
+                display={"inline-block"}
+                fontSize="13px"
+                color={"grey"}
+              >
+                Source
+              </chakra.span>
+              <RiGithubFill display={"block"} />
+            </a>
+          )}
+        </HStack>
+        <HStack width={"fit-content"} margin="1em auto">
+          {project.technologies.map((tech) => (
+            <Image width="30px" src={tech} />
+          ))}
+        </HStack>
+      </Box>
+    </Box>
+  );
 }
 
 export default Projects;

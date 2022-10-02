@@ -13,7 +13,7 @@ function HeroSection() {
         </Heading>
 
         <Text width={{sm:"600px", base:"fit-content"}} margin="1em auto">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro nostrum ipsam esse iure quaerat provident pariatur quos sunt laboriosam consectetur.
+            A <strong>Creative</strong> Software Engineer, with a track record of building intuitive applications for the web platform using technologies like, <strong>TypeScript</strong>, <strong>React</strong>, <strong>Node</strong>  and <strong>Ruby on Rails</strong> 
         </Text>
 
         <HStack fontSize={{xs:"50px", base:"25px"}} width={{xs:"280px", base:"180px"}} margin="0 auto">

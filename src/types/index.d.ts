@@ -6,7 +6,7 @@ interface IProject {
     image: string;
     links:{
         github?: string;
-        live: string;
+        live?: string;
     };
     technologies: string[]
     category: string
