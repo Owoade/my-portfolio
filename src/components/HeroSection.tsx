@@ -1,8 +1,10 @@
 import { Box, Button, Heading, HStack, Image, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
 import { RiTwitterFill, RiLinkedinBoxFill, RiGithubFill } from "react-icons/ri"
+import { useNavigate } from "react-router-dom"
 
 function HeroSection() {
+  const navigate = useNavigate();
   return (
     <Box textAlign={"center"} my={10} >
 
@@ -32,7 +34,7 @@ function HeroSection() {
 
         <HStack margin={"1em auto"} display={{xs:"flex", base:"block"}}  width={{xs:"fit-content", base:"100%"}} transform={{sm:"translateY(2em)", base:"translateY(.5em)"}}>
             <Text margin="1em 0" >Wanna see what I'm capable of? </Text>
-            <Button className='main-cta' variant={"primary"}> View Portfolio 🔥</Button>
+            <Button className='main-cta' onClick={()=>navigate("/portfolio")} variant={"primary"}> View Portfolio 🔥</Button>
         </HStack>
     </Box>
   )

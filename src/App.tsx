@@ -1,19 +1,19 @@
 import React from 'react';
 import './App.css';
 import { Box } from "@chakra-ui/react"
-import Header from "./components/Header"
-import Wrapper from './components/Wrapper';
-import  HeroSection from "./components/HeroSection"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Portfolio from "./pages/Portfolio"
 
 function App() {
   return (
     <Box className="App">
-      <Wrapper>
-        <Box>
-        <Header /> 
-        <HeroSection />
-        </Box>
-      </Wrapper>
+       <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+     </BrowserRouter>
     </Box>
   );
 }
