@@ -15,7 +15,6 @@ function Portfolio() {
             <ProjectTab />
             <Projects />
           </Box>
-         
         </PortfolioTabContextProvider>
       </Box>
     </Wrapper>

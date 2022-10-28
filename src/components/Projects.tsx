@@ -24,7 +24,7 @@ function Projects() {
     <Box>
       <Grid
         width={{ lg: "100%", base: "fit-content" }}
-        rowGap={{ lg: "0", base: "6" }}
+        gap={6}
         gridTemplateColumns={{ lg: "repeat(3, 1fr)", base: "repeat(1, 1fr)" }}
         margin={{ lg: "3em 0", base: "3em auto" }}
       >
@@ -62,6 +62,7 @@ function Project({ project }: { project: IProject }) {
       border="1px solid whitesmoke"
       borderRadius={"8px"}
       boxShadow="0px 4px 25px rgba(197, 197, 197, 0.15);"
+      mt={ project.name === "Template generator" ? { lg: "2em", base: "0" } : 0 }
     >
       <Image width="100%" src={project.image} />
       <Box className="project__desc" textAlign={"center"}>
