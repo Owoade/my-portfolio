@@ -102,7 +102,7 @@ const projects: IProject[] = [
     image:
       "https://res.cloudinary.com/dles2mycv/image/upload/v1664726629/squiz_group_cyqawv.png",
     links: {
-      live: "https://www.squiz.app/",
+      live: "https://quiz-app-livid-zeta.vercel.app/",
     },
     category: "Fullstack",
     technologies: [TYPESCRIPT, REACT, NODE_JS, FIREBASE, MONGO_DB],
